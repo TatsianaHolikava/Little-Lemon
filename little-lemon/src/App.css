@@ -1,0 +1,279 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #495e57;
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 72px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #f6cf0f;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: #f1cb0d;
+}
+
+.hero {
+  background: #3a7348;
+  color: #ffffff;
+  padding: 80px 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.hero-content,
+.hero-card,
+.info-section,
+.menu-preview,
+.booking-section {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #f4ce14;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.9;
+}
+
+.hero p {
+  max-width: 560px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #f4ce14;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.primary-link,
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 14px;
+  background: #f4ce14;
+  color: #333333;
+  padding: 14px 22px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.primary-link:hover,
+.primary-link:focus,
+.submit-button:hover:not(:disabled),
+.submit-button:focus:not(:disabled) {
+  background: #ffd93d;
+  transform: translateY(-2px);
+}
+
+.submit-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.hero-card {
+  min-height: 280px;
+  border-radius: 24px;
+  padding: 32px;
+  background: #ffffff;
+  color: #333333;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.hero-card span {
+  font-size: 6rem;
+}
+
+.info-section,
+.menu-preview,
+.booking-section {
+  padding: 64px 24px;
+}
+
+.info-section h2,
+.menu-preview h2,
+.booking-section h2 {
+  margin-top: 0;
+  color: #495e57;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.info-section p,
+.section-heading p {
+  max-width: 760px;
+  line-height: 1.7;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card,
+.booking-form,
+.confirmation {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(73, 94, 87, 0.12);
+}
+
+.card h3 {
+  color: #495e57;
+}
+
+.booking-form {
+  display: grid;
+  gap: 24px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-field {
+  display: grid;
+  gap: 8px;
+}
+
+label,
+legend {
+  font-weight: 800;
+  color: #495e57;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid #d7d7d7;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #ffffff;
+}
+
+input:focus,
+select:focus {
+  outline: 3px solid rgba(244, 206, 20, 0.45);
+  border-color: #495e57;
+}
+
+input[aria-invalid='true'],
+select[aria-invalid='true'] {
+  border-color: #b00020;
+}
+
+.error {
+  margin: 0;
+  color: #b00020;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+fieldset {
+  border: 2px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.radio-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.radio-row label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #333333;
+}
+
+.radio-row input {
+  width: auto;
+  min-height: auto;
+}
+
+.confirmation {
+  border-left: 8px solid #f4ce14;
+}
+
+.footer {
+  padding: 32px 24px;
+  text-align: center;
+  background: #333333;
+  color: #ffffff;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px 24px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 48px;
+  }
+
+  .cards,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
