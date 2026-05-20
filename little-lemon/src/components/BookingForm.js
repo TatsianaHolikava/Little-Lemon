@@ -82,7 +82,6 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
     }
   }
 
-  const isFormValid = Object.keys(validate(formData)).length === 0;
 
   return (
     <form className="booking-form" onSubmit={handleSubmit} noValidate aria-label="Reserve a table form">
@@ -239,7 +238,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         </div>
       </div>
 
-      <button className="submit-button" type="submit" disabled={!isFormValid} aria-label="Submit reservation">
+      <button className="submit-button" type="submit" aria-label="Submit reservation">
         Reserve a table
       </button>
     </form>

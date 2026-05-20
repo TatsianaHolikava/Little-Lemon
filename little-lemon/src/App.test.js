@@ -10,6 +10,7 @@ test('renders the booking form heading', () => {
 
 test('initializeTimes returns available booking times', () => {
   const times = initializeTimes();
+
   expect(Array.isArray(times)).toBe(true);
   expect(times.length).toBeGreaterThan(0);
 });
@@ -17,6 +18,7 @@ test('initializeTimes returns available booking times', () => {
 test('updateTimes returns available times for selected date', () => {
   const state = ['17:00'];
   const newTimes = updateTimes(state, { type: 'date_changed', date: '2026-05-23' });
+
   expect(Array.isArray(newTimes)).toBe(true);
   expect(newTimes).toContain('19:00');
 });
@@ -24,12 +26,17 @@ test('updateTimes returns available times for selected date', () => {
 test('shows validation messages when required fields are missing', async () => {
   render(<App />);
 
-  const firstNameInput = screen.getByLabelText(/first name/i);
-  await userEvent.click(firstNameInput);
-  await userEvent.tab();
+  await userEvent.clear(screen.getByLabelText(/first name/i));
+  await userEvent.clear(screen.getByLabelText(/last name/i));
+  await userEvent.clear(screen.getByLabelText(/email/i));
+  await userEvent.clear(screen.getByLabelText(/phone/i));
 
-  const submitButton = screen.getByRole('button', { name: /submit reservation/i });
-  expect(submitButton).toBeDisabled();
+  await userEvent.click(screen.getByRole('button', { name: /submit reservation/i }));
+
+  expect(screen.getByText(/first name is required/i)).toBeInTheDocument();
+  expect(screen.getByText(/last name is required/i)).toBeInTheDocument();
+  expect(screen.getByText(/please enter a valid email address/i)).toBeInTheDocument();
+  expect(screen.getByText(/please enter a valid phone number/i)).toBeInTheDocument();
 });
 
 test('submits a valid reservation and displays confirmation', async () => {
